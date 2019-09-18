@@ -1,0 +1,60 @@
+/*动画*/
+@keyframes left-right {
+  0% {
+    transform: translateX(-20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.left-right{
+  animation-name:left-right;
+  animation-duration:2s;
+}
+
+@keyframes right-left {
+  0% {
+    transform: translateX(20px);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+.right-left{
+  animation-name:right-left;
+  animation-duration:2s;
+}
+
+@keyframes top-bottom {
+  0% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.top-bottom{
+  animation-name:top-bottom;
+  animation-duration:2s;
+}
+
+@keyframes bottom-top {
+  0% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.bottom-top{
+  animation-name:bottom-top;
+  animation-duration:2s;
+}
+
+/*路由过度效果*/
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-active {
+  opacity: 0.8;
+}
