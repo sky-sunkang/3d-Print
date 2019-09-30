@@ -5,9 +5,7 @@
     <div class="container bottom-top">
       <div class="content-wapper ">
         <el-container>
-          <el-aside width="200px" class="left-right">
             <V-Left />
-          </el-aside>
           <el-main class="right-left">
             <!--产品展示-->
             <div class="productList">
@@ -17,13 +15,15 @@
               </div>
               <div class="productDiv">
                 <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in products" :key="index" >
-                  <div class="productImg">
-                    <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover"> <div slot="placeholder" class="image-slot">玩命加载中...</div></el-image>
-                  </div>
-                  <div >
-                    <span v-bind:title="product.title">{{product.title}}</span>
-                    <span class="time">{{dateFormat(product.publishDate) }}</span>
-                  </div>
+                  <NuxtLink :to="{path:'/detail/product/'+product.id}">
+                    <div class="productImg">
+                      <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover"> <div slot="placeholder" class="image-slot">玩命加载中...</div></el-image>
+                    </div>
+                    <div >
+                      <span v-bind:title="product.title">{{product.title}}</span>
+                      <span class="time">{{dateFormat(product.publishDate) }}</span>
+                    </div>
+                  </NuxtLink>
                 </el-card>
               </div>
             </div>
@@ -32,7 +32,6 @@
             <div class="companyProfile">
               <div class="listTitle">
                 <span class="listTitleName" >企业档案</span>
-                <span class="listTitleMore">MORE+</span>
               </div>
               <div class="companyProfileDiv">
                 <div class="companyProfileText">
@@ -46,14 +45,16 @@
             <div class="newsList">
               <div class="listTitle">
                 <span class="listTitleName" >新闻列表</span>
-                <span class="listTitleMore" >MORE+</span>
+                <NuxtLink to="/list/news"><span class="listTitleMore">MORE+</span></NuxtLink>
               </div>
               <ul class="news-ul" >
                 <a href="#" >
                   <li v-for="newObj in news">
-                    <span class="new-title">{{newObj.title}}</span>
-                    <span class="new-date">{{dateFormat(newObj.publishDate) }}</span>
-                    <span class="new-desc">{{newObj.description}}</span>
+                    <NuxtLink :to="{path:'/detail/news/'+newObj.id}">
+                      <span class="new-title">{{newObj.title}}</span>
+                      <span class="new-date">{{dateFormat(newObj.publishDate) }}</span>
+                      <span class="new-desc">{{newObj.description}}</span>
+                    </NuxtLink>
                   </li>
                 </a>
               </ul>
@@ -74,6 +75,15 @@
       return {
         banners:[require("~/assets/images/banner-1.jpg"),require("~/assets/images/banner-2.jpg")],
         producrImg:require("~/assets/images/product.png")
+      }
+    },
+    head(){
+      return {
+        title: '汇通3D打印科技有限公司,深圳3D打印服务,深圳有哪些3D打印加工,龙华有哪些3D打印手板模型,龙华3D打印,罗湖有哪些3D打印模型,广州有哪些3D打印,东莞有哪些3D打印模型,东莞,惠州,中山,佛山,珠海,江门3D打印手板',
+        meta: [
+          { hid: 'keywords', name: 'keywords', content:'深圳3D打印加工,龙华3D打印模型,宝安3D手板模型,龙岗3D手板模型,韶关3D打印模型,惠州3D打印模型,东莞3D打印手板模型,佛山3D打印手板模型,中山3D打印模型,江门3D打印手板'},
+          { hid: 'description', name: 'description', content:  '深圳汇通3D打印科技有限公司是从事3D打印,3D打印服务,手板模型制造,模型设计开发的专业型公司。目前公司拥有数十几台尖端工业级3D打印机及相关配套设。在消费类电子产品、家电产品、汽车制造、医疗器械、通讯产品、工艺礼品、 玩具公仔等领域得到广泛用。深圳汇通三维始终坚信，3D打印将为中国制造提供丰富 的解决方案并贡献自己强大的力量，我们也将一如既往的站在3D打印技术最前沿与中国制造一同成长！'}
+        ]
       }
     },
     created () {
@@ -121,6 +131,7 @@
   body{
     margin: 0;
     color: #666666;
+    letter-spacing:1px;
   }
   body li{
     list-style:none;
@@ -131,7 +142,9 @@
   body a:hover {
     /*color: #faaf5c;*/
   }
-
+  .container {
+    margin-top: 20px;
+  }
   .content-wapper{
     width: 1200px;
     min-height: 500px;
@@ -180,7 +193,7 @@
 
   /*新闻列表*/
   .newsList{
-    margin-top: 10px;
+    /*margin-top: 10px;*/
     clear: both;
   }
   .news-ul {
@@ -266,6 +279,7 @@
     text-align: center;
     overflow:hidden;
     text-overflow:ellipsis;
+    color: #666666;
   }
   .product span.time{
     font-size: 13px;

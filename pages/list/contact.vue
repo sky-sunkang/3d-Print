@@ -5,15 +5,23 @@
     <div class="container  bottom-top">
       <div class="content-wapper ">
         <el-container>
-          <el-aside width="200px" class="left-right">
-            <V-Left />
-          </el-aside>
+          <V-Left />
           <el-main class="right-left">
             <div class="contactList">
               <div class="listTitle" >
                 <span class="listTitleName" >联系方式</span>
               </div>
-              <div class="contactDiv"  v-html="htmlDecode(contact)">
+              <div class="contactDiv" >
+                <p>深圳汇通三维打印科技有限公司</p>
+                <p>联系人：余小姐 （销售部经理）</p>
+                <p>QQ：2850763601</p>
+                <p>电话：0755-66608413</p>
+                <p>手机：15919464663</p>
+                <p>地址：广东省宝安区深圳市龙华新区龙华街道华联社区和平工业园金星大厦厂房14楼C01</p>
+                <br>
+                <div id="allmap">
+                </div>
+                <span style="color: red">*上述地图中的红点是深圳汇通三维打印科技在百度地图中的具体位置标注，地图可以拖动，鼠标滑轮滑动放大</span>
               </div>
             </div>
           </el-main>
@@ -30,6 +38,15 @@
   import Left from '~/components/Left'
   export default {
     name: 'contact',
+    head(){
+      return {
+        title: '汇通3D打印科技有限公司,3D打印手板,深圳有哪些3D打印加工,龙华有哪些3D打印模型,福田有哪些3D打印手板,广州有哪些3D模型,东莞有哪些3D打印模型,东莞,惠州,中山,佛山,珠海,江门3D打印手板模型',
+        meta: [
+          { hid: 'keywords', name: 'keywords', content:'深圳3D打印加工,龙华3D打印模型,宝安3D手板模型,龙岗3D手板模型,惠州3D打印模型,东莞3D打印手板模型,佛山3D打印手板模型,中山3D打印模型,江门3D打印手板'},
+          { hid: 'description', name: 'description', content:  '深圳汇通3D打印科技有限公司是从事3D打印,3D打印服务,手板模型制造,模型设计开发的专业型公司。目前公司拥有数十几台尖端工业级3D打印机及相关配套设。在消费类电子产品、家电产品、汽车制造、医疗器械、通讯产品、工艺礼品、 玩具公仔等领域得到广泛用。深圳汇通三维始终坚信，3D打印将为中国制造提供丰富 的解决方案并贡献自己强大的力量，我们也将一如既往的站在3D打印技术最前沿与中国制造一同成长！'}
+        ]
+      }
+    },
     components: {
       'Foot': Foot,
       'V-HeadBanner': HeadBanner,
@@ -37,6 +54,21 @@
       'V-Left':Left
     },
     created() {
+      var interval =setInterval(function(){
+        try {
+          var map = new BMap.Map('allmap')
+          var point = new BMap.Point(114.026909, 22.676792)
+          map.centerAndZoom(point, 10)
+          map.enableScrollWheelZoom()//  启用滚轮放大缩小，默认禁用
+          map.enableContinuousZoom()//  启用地图惯性拖拽，默认禁用
+          var local = new BMap.LocalSearch(map, {
+            renderOptions: {map: map}
+          })
+          local.search('深圳汇通三维打印科技有限公司')
+          clearInterval(interval)
+        }catch {
+        }
+      },1000)
     },
     methods: {
       htmlDecode (value) { // 把转义的字符串转义回来
@@ -57,13 +89,13 @@
         .replace(/&quot;/g, "\"")
         .replace(/&#39;/g, "\'");
       }
-    },
+    }/*,
     async asyncData({ $axios}) {
       //产品
       const res = await $axios.get('/member/contentList.json?categoryId=123')
 //      var aa = $('<p/>').html(res.data.data[0].text).text()
       return {contact:res.data.data[0].text}
-    }
+    }*/
   }
 </script>
 

@@ -1,33 +1,35 @@
 const webpack = require('webpack')
+const axios = require('axios')
+
 export default {
   mode: 'universal',
   /*
    ** Headers of the page
    */
   head: {
-    title: '深圳汇通三维打印科技有限公司深圳有哪些3D打印手板模型公司',
+//    title: '3D打印手板模型|深圳龙华有哪些3D打印手板模型|广州有哪些3D打印手板模型|东莞有哪些3D打印手板模型|东莞|惠州|中山|佛山|珠海|江门有哪些3D打印手板模型|深圳汇通三维打印科技',
     meta: [
       {charset: 'utf-8'},
       {
         name: 'viewport',
         content: 'width=device-width, initial-scale=1'
       },
-      {
-        name: 'keywords',
-        content: '深圳3D打印手板模型,龙华3D打印手板模型,南山3D打印手板模型,龙华3D打印手板模型,龙华有哪些3D打印手板模型公司,深圳有哪些3D打印手板模型公司,惠州3D打印手板模型,东莞3D打印手板模型,佛山3D打印手板模型,廊坊3D打印手板模型，成都3D打印手板模型'
-      },
-      {
-        name: 'description',
-        content: '深圳汇通三维打印科技有限公司是从事3D打印、手板模型制造、模型设计开发的专业型公司。专注于为客户广东、深圳等提供3D打印手板模型服务'
-      },
-      {
-        name: 'copyright',
-        content: '龙华3D打印手板模型公司'
-      },
-      {
-        name: 'author',
-        content: '龙华3D打印手板模型公司'
-      }
+//      {
+//        name: 'keywords',
+//        content: '深圳3D打印手板模型|深圳龙华3D打印手板模型|深圳南山3D打印手板模型|龙华3D打印手板模型|龙华有哪些3D打印手板模型公司|深圳有哪些3D打印手板模型|广东惠州3D打印手板模型|广东东莞3D打印手板模型|广东佛山3D打印手板模型|广东中山3D打印手板模型',
+//      },
+//      {
+//        name: 'description',
+//        content: '深圳汇通三维打印科技是从事3D打印,手板模型制造的专业型公司。专注于为广东,深圳|广州|东莞|惠州|中山|佛山|珠海|江门等地提供3D打印手板模型服务'
+//      },
+//      {
+//        name: 'copyright',
+//        content: '深圳3D打印手板模型'
+//      },
+//      {
+//        name: 'author',
+//        content: '深圳3D打印手板模型制作_深圳3D打印手板模型打印_深圳3D打印手板_深圳3D打印手板厂家_深圳汇通三维打印科技'
+//      }
     ], script: [
       {src: 'http://api.map.baidu.com/api?v=2.0&ak=zG9ZHEURUd0WH20G6gQ8HRRa'},
       {src: 'https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js' },
@@ -77,6 +79,15 @@ export default {
 //    baseURL:
 //      process.env._ENV =="production"?"http://localhost:3000/api/":"http://localhost:3000/api/",
     credentials:true
+  },
+  //动态路由打成静态文件["news/14","news/12"]
+  generate: {
+    routes: function () {
+      return axios.get('http://sk-yye.cn:8080/publiccms/member/detail.json')
+      .then((res) => {
+        return res.data;
+      })
+    }
   },
   //  开发环境的代理，服务器上用nginx反向代理
   proxy: {

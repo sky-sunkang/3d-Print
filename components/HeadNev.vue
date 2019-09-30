@@ -22,11 +22,11 @@
           新闻动态
         </div>
         </NuxtLink>
-        <!--<NuxtLink to="/list/company">-->
-        <div class="menu">
+        <NuxtLink to="/list/contact">
+        <div class="menu" v-bind:class="selectNev=='contact'?'select':''">
           联系方式
         </div>
-        <!--</NuxtLink>-->
+        </NuxtLink>
       </div>
     </div>
   </div>

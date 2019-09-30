@@ -5,15 +5,13 @@
     <div class="container  bottom-top">
       <div class="content-wapper ">
         <el-container>
-          <el-aside width="200px" class="left-right">
-            <V-Left />
-          </el-aside>
+          <V-Left />
           <el-main class="right-left">
             <div class="companyList">
               <div class="listTitle" >
                 <span class="listTitleName" >企业档案</span>
               </div>
-              <div class="companyDiv"  v-html="htmlDecode(company)">
+              <div class="companyDiv"  v-html="htmlDecode(company.text)">
               </div>
             </div>
           </el-main>
@@ -30,6 +28,20 @@
   import Left from '~/components/Left'
   export default {
     name: 'company',
+    data() {
+      return {
+        company:{}
+      }
+    },
+    head(){
+      return {
+        title: this.company.title,
+        meta: [
+          { hid: 'keywords', name: 'keywords', content: this.company.keywords },
+          { hid: 'description', name: 'description', content:  this.company.description  }
+          ]
+      }
+    },
     components: {
       'Foot': Foot,
       'V-HeadBanner': HeadBanner,
@@ -62,7 +74,7 @@
       //产品
       const res = await $axios.get('/member/contentList.json?categoryId=123')
 //      var aa = $('<p/>').html(res.data.data[0].text).text()
-      return {company:res.data.data[0].text}
+      return {company:res.data.data[0]}
     }
   }
 </script>

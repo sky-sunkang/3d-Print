@@ -4,8 +4,8 @@
     <span >Copyright © 2018.粤ICP备18040421号</span>
     <span class="fenge">|</span>
     <span >sk-yye.cn</span>
-    <span class="fenge">|</span>
-    <span ><img src="~/assets/images/access.png"/>累计访问量<span class="access">100</span></span>
+    <!--<span class="fenge">|</span>
+    <span ><img src="~/assets/images/access.png"/>累计访问量<span class="access">100</span></span>-->
   </div>
 </template>
 

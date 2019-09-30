@@ -1,13 +1,13 @@
 <template>
-  <div>
+  <el-aside width="215px" class="left-right">
     <div class="leftContactNav" >
       <ul>
-        <li class="leftContactNavTitle">产品分类</li>
+        <li class="leftContactNavTitle">产品导航</li>
         <li>3D打印</li>
         <li>手板模型</li>
         <li>SLA激光快速成型</li>
         <li>3D打印模型</li>
-        <li>3D打印手板</li>
+        <li>3D打印手板模型</li>
       </ul>
     </div>
     <div class="leftContactNav">
@@ -17,7 +17,7 @@
           深圳汇通三维打印科技
         </li>
         <li >
-          余小姐 （销售部销售经理）
+          余小姐 （销售部经理）
         </li>
         <a class="tboxLi" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2850763601&amp;site=qq&amp;menu=yes" rel="nofollow">
           <li >
@@ -37,11 +37,11 @@
           <img src="~/assets/images/index/email.png" width="20" height="20"/>：2850763601@qq.com
         </li>
         <li>
-          <img src="~/assets/images/index/address.png" width="20" height="20"/>：广东省宝安区深圳市龙华新区龙华街道华联社区和平工业园金星大厦厂房14楼C01<a @click="ditu" href="javascript:void(0);">查看详情</a>
+          <img src="~/assets/images/index/address.png" width="20" height="20"/>：广东省宝安区深圳市龙华新区龙华街道华联社区和平工业园金星大厦厂房14楼C01室<a @click="ditu" href="javascript:void(0);">查看详情</a>
         </li>
       </ul>
     </div>
-  </div>
+  </el-aside>
 </template>
 
 <script>
@@ -83,7 +83,7 @@
   .leftContactNav ul{
     padding: 0px ;
     margin: 0px;
-    width: 199px;
+    width: 100%;
   }
   .leftContactNav li{
     list-style:none;
