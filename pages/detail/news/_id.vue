@@ -63,6 +63,7 @@
         }
         return value
         .replace(value ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+        .replace(/&nbsp;/g, "  ")
         .replace(/&lt;/g, "<")
         .replace(/&gt;/g, ">")
         .replace(/&quot;/g, "\"")

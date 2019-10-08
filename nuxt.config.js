@@ -134,7 +134,7 @@ export default {
     extend (config, ctx) {
 //      config.externals={'jquery':'$'}
     },
-    vendor:['axios'], //防止重复打包
+    vendor:['babel-es6-polyfill','axios'], //防止重复打包
     /**
      * 打包独立css文件
      */

@@ -25,7 +25,7 @@
           </li>
         </a>
         <li>
-          <img src="~/assets/images/index/weixin.png" width="20" height="20"/>：yye9202<img class="scale" src="~/assets/images/index/skweixin.jpg" width="30" height="30"/><span class="tips">（可放大）</span>
+          <img src="~/assets/images/index/weixin.png" width="20" height="20"/>：yye9202<img class="scale" src="~/assets/images/index/3Dprintweixin.jpg" width="30" height="30"/><span class="tips">（可放大）</span>
         </li>
         <li>
           <img src="~/assets/images/index/tell.png" width="20" height="20"/>：0755-66608413

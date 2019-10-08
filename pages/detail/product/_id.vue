@@ -11,11 +11,11 @@
               您所在的位置：<NuxtLink to="/">网站首页</NuxtLink> > <NuxtLink to="/list/products">产品展示</NuxtLink> > 产品详情
               <el-divider></el-divider>
               <div class="product-crove">
-                <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+data.cover" width="400"></el-image>
+                <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+data.cover" width="400" :alt="data.title"></el-image>
               </div>
               <div class="product-into">
                 <div class="product-title">{{data.title}}</div>
-                <img class="scale" src="~/assets/images/index/skweixin.jpg" width="60" height="60"/>
+                <img class="scale" src="~/assets/images/index/3Dprintweixin.jpg" width="60" height="60" />
                 <p>价格信息（详情请电话或微信联系）：</p>
                 <p>{{data.price}}</p>
                 <p>产品名称：{{data.product_name}}</p>
@@ -67,6 +67,7 @@
         }
         return value
         .replace(value ? /&(?!#?\w+;)/g : /&/g, '&amp;')
+        .replace(/&nbsp;/g, " ")
         .replace(/&lt;/g, "<")
         .replace(/&gt;/g, ">")
         .replace(/&quot;/g, "\"")
