@@ -13,6 +13,11 @@
       return {
       }
     },
+    watch: {
+      "$route": function(){
+        //路由变化会触发
+      }
+    },
     components: {
       'Foot': Foot,
       'V-HeadBanner': HeadBanner,

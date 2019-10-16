@@ -5,7 +5,7 @@
     <div class="container  bottom-top">
       <div class="content-wapper ">
         <el-container>
-          <V-Left />
+          <V-Left class="left-right"/>
           <el-main class="right-left">
             <div class="newsList">
               <div class="listTitle" >
@@ -67,8 +67,21 @@
       'V-HeadBanner': HeadBanner,
       'V-HeadNev': HeadNev,
       'V-Left':Left
-    },
-    created() {
+    },created(){
+      try {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+        console.log("提交百度链接")
+      } catch(err) {
+      }
     },
     methods: {
       dateFormat(time) {
@@ -121,6 +134,11 @@
 </script>
 
 <style scoped>
+  .content-wapper {
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+  }
   .container {
     margin-top: 20px;
   }

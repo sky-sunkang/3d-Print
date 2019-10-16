@@ -5,7 +5,7 @@
     <div class="container  bottom-top">
       <div class="content-wapper ">
         <el-container>
-          <V-Left />
+          <V-Left class="left-right"/>
           <el-main class="right-left">
             <div class="contactList">
               <div class="listTitle" >
@@ -40,7 +40,7 @@
     name: 'contact',
     head(){
       return {
-        title: '汇通3D打印科技有限公司,3D打印手板,深圳有哪些3D打印加工,龙华有哪些3D打印模型,福田有哪些3D打印手板,广州有哪些3D模型,东莞有哪些3D打印模型,东莞,惠州,中山,佛山,珠海,江门3D打印手板模型',
+        title: '深圳汇通3D打印科技有限公司,,3D打印手板,深圳有哪些3D打印加工,龙华有哪些3D打印模型,福田有哪些3D打印手板,广州有哪些3D模型,东莞有哪些3D打印模型,东莞,惠州,中山,佛山,珠海,江门3D打印手板模型',
         meta: [
           { hid: 'keywords', name: 'keywords', content:'深圳3D打印加工,龙华3D打印模型,宝安3D手板模型,龙岗3D手板模型,惠州3D打印模型,东莞3D打印手板模型,佛山3D打印手板模型,中山3D打印模型,江门3D打印手板'},
           { hid: 'description', name: 'description', content:  '深圳汇通3D打印科技有限公司是从事3D打印,3D打印服务,手板模型制造,模型设计开发的专业型公司。目前公司拥有数十几台尖端工业级3D打印机及相关配套设。在消费类电子产品、家电产品、汽车制造、医疗器械、通讯产品、工艺礼品、 玩具公仔等领域得到广泛用。深圳汇通三维始终坚信，3D打印将为中国制造提供丰富 的解决方案并贡献自己强大的力量，我们也将一如既往的站在3D打印技术最前沿与中国制造一同成长！'}
@@ -100,6 +100,11 @@
 </script>
 
 <style scoped>
+  .content-wapper {
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+  }
   .container {
     margin-top: 20px;
   }

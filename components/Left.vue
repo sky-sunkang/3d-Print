@@ -1,5 +1,5 @@
 <template>
-  <el-aside width="215px" class="left-right">
+  <el-aside width="215px">
     <div class="leftContactNav" >
       <ul>
         <li class="leftContactNavTitle">产品导航</li>

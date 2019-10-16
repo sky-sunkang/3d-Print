@@ -1,3 +1,65 @@
+body{
+  margin: 0;
+  color: #666666;
+  letter-spacing:1px;
+}
+body li{
+  list-style:none;
+}
+body a {
+  text-decoration: none;
+}
+body a:hover {
+  /*color: #faaf5c;*/
+}
+.container {
+  margin-top: 20px;
+}
+.content-wapper{
+  width: 1200px;
+  min-height: 500px;
+  margin: 0 auto;
+}
+.image-slot{
+  position:absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*左边导航*/
+.el-aside{
+  margin-top: 10px;
+}
+
+/*右边内容*/
+.el-main {
+  padding: 0px 0px 0px 20px;
+  margin-top: 10px;
+}
+
+.listTitle {
+  border-bottom: 1px solid black;
+}
+
+.listTitleName {
+  display: inline-block;
+  width: 100px;
+  height: 45px;
+  background-color: black;
+  color: white;
+  line-height: 45px;
+  text-align: center
+}
+
+.listTitleMore {
+  float: right;
+  color: black;
+  display: inline-block;
+  height: 45px;
+  line-height: 45px;
+  margin-right: 5px;
+  cursor: pointer;
+}
 /*动画*/
 @keyframes left-right {
   0% {

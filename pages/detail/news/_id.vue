@@ -5,7 +5,7 @@
     <div class="container  bottom-top">
       <div class="content-wapper ">
         <el-container>
-          <V-Left />
+          <V-Left class="left-right"/>
           <el-main class="right-left">
             <div>
               您所在的位置：<NuxtLink to="/">网站首页</NuxtLink> > <NuxtLink to="/list/news">新闻动态</NuxtLink> > 正文
@@ -34,6 +34,7 @@
   import HeadBanner from '~/components/HeadBanner'
   import HeadNev from '~/components/HeadNev'
   import Left from '~/components/Left'
+
   export default {
     name: 'new-detail',
     components: {
@@ -45,6 +46,33 @@
     data() {
       return {
         data:{}
+      }
+    },created(){
+      try {
+        !function () {
+          var e = /([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,
+            r = window.location.href,
+            o = document.referrer==""?"http://sk-yye.cn":document.referrer
+          if (!e.test(r)) {
+            var n = '//api.share.baidu.com/s.gif'
+            o ? (n += '?r=' + encodeURIComponent(document.referrer==""?"http://sk-yye.cn":document.referrer), r && (n += '&l=' + r)) : r && (n += '?l=' + r)
+            var t = new Image
+            t.src = n
+          }
+          console.log("提交百度链接")
+        }(window)
+//        var bp = document.createElement('script');
+//        var curProtocol = window.location.protocol.split(':')[0];
+//        if (curProtocol === 'https') {
+//          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+//        }
+//        else {
+//          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+//        }
+//        var s = document.getElementsByTagName("script")[0];
+//        s.parentNode.insertBefore(bp, s);
+//        console.log("提交百度链接")
+      } catch(err) {
       }
     },
     head(){
@@ -97,6 +125,14 @@
 </script>
 
 <style scoped>
+  .content-wapper {
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+  }
+  .container {
+    margin-top: 20px;
+  }
   .content-wapper  .el-divider--horizontal{
     margin: 10px 0;
   }

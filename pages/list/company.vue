@@ -5,7 +5,7 @@
     <div class="container  bottom-top">
       <div class="content-wapper ">
         <el-container>
-          <V-Left />
+          <V-Left class="left-right"/>
           <el-main class="right-left">
             <div class="companyList">
               <div class="listTitle" >
@@ -80,6 +80,11 @@
 </script>
 
 <style scoped>
+  .content-wapper {
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+  }
   .container {
     margin-top: 20px;
   }

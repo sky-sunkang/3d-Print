@@ -1,26 +1,26 @@
 <template>
   <div>
-    <V-HeadBanner class="top-bottom"/>
-    <V-HeadNev selectNev="product" class="top-bottom"/>
+    <V-HeadBanner class="top-bottom" />
+    <V-HeadNev selectNev="product" class="top-bottom" />
     <div class="container  bottom-top">
       <div class="content-wapper ">
         <el-container>
-            <V-Left />
+            <V-Left class="left-right"/>
           <el-main class="right-left">
             <div>
               您所在的位置：<NuxtLink to="/">网站首页</NuxtLink> > <NuxtLink to="/list/products">产品展示</NuxtLink> > 产品详情
               <el-divider></el-divider>
               <div class="product-crove">
-                <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+data.cover" width="400" :alt="data.title"></el-image>
+                <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+data.cover" width="400" :alt="data.product_name"></el-image>
               </div>
               <div class="product-into">
                 <div class="product-title">{{data.title}}</div>
                 <img class="scale" src="~/assets/images/index/3Dprintweixin.jpg" width="60" height="60" />
-                <p>价格信息（详情请电话或微信联系）：</p>
+                <p>价格信息：</p>
                 <p>{{data.price}}</p>
-                <p>产品名称：{{data.product_name}}</p>
                 <p>产品品牌：{{data.author}}</p>
                 <p>供应总量：{{data.product_total}}</p>
+                <p style="color: red">价格可谈，量大长期合作者从优，详情请电话、微信联系或公司面谈</p>
               </div>
               <div class="product-detail" v-html="htmlDecode(data.text)">
 
@@ -50,10 +50,37 @@
       return {
         data:{}
       }
+    },created(){
+      try {
+        !function () {
+          var e = /([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,
+            r = window.location.href,
+            o = document.referrer==""?"http://sk-yye.cn":document.referrer
+          if (!e.test(r)) {
+            var n = '//api.share.baidu.com/s.gif'
+            o ? (n += '?r=' + encodeURIComponent(document.referrer==""?"http://sk-yye.cn":document.referrer), r && (n += '&l=' + r)) : r && (n += '?l=' + r)
+            var t = new Image
+            t.src = n
+          }
+          console.log("提交百度链接")
+        }(window)
+//        var bp = document.createElement('script');
+//        var curProtocol = window.location.protocol.split(':')[0];
+//        if (curProtocol === 'https') {
+//          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+//        }
+//        else {
+//          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+//        }
+//        var s = document.getElementsByTagName("script")[0];
+//        s.parentNode.insertBefore(bp, s);
+//        console.log("提交百度链接")
+      } catch(err) {
+      }
     },
     head(){
       return {
-        title: this.data.title,
+        title: this.data.product_name,
         meta: [
           { hid: 'keywords', name: 'keywords', content: this.data.keywords },
           { hid: 'description', name: 'description', content:  this.data.description  }
@@ -101,6 +128,14 @@
 </script>
 
 <style scoped>
+  .content-wapper {
+    width: 1200px;
+    min-height: 500px;
+    margin: 0 auto;
+  }
+  .container {
+    margin-top: 20px;
+  }
   .content-wapper  .el-divider--horizontal{
     margin: 10px 0;
   }
@@ -132,6 +167,9 @@
   .product-title{
     font-size: 18px;
     font-weight: bold;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
   .product-detail{
     clear: both;

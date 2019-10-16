@@ -26,20 +26,20 @@ export default {
 //        name: 'copyright',
 //        content: '深圳3D打印手板模型'
 //      },
-//      {
-//        name: 'author',
-//        content: '深圳3D打印手板模型制作_深圳3D打印手板模型打印_深圳3D打印手板_深圳3D打印手板厂家_深圳汇通三维打印科技'
-//      }
+      {
+        name: 'author',
+        content: '深圳汇通三维打印科技'
+      }
     ], script: [
       {src: 'http://api.map.baidu.com/api?v=2.0&ak=zG9ZHEURUd0WH20G6gQ8HRRa'},
       {src: 'https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js' },
-      {src: 'js/baidu.js' }
+      {src: '/js/baidu.js' }
     ],
     link: [
       {
         rel: 'icon',
         type: 'image/x-icon',
-        href: 'logo.jpg'
+        href: '/logo.jpg'
       },
       {
         rel: 'stylesheet',
@@ -50,7 +50,7 @@ export default {
   },css: [
     '~/css/main.css'
   ],js: [
-    '~/plugins/baidu.js'
+    '~/js/baidu.js'
   ],
   /*
    ** Customize the progress-bar color
@@ -134,7 +134,7 @@ export default {
     extend (config, ctx) {
 //      config.externals={'jquery':'$'}
     },
-    vendor:['babel-es6-polyfill','axios'], //防止重复打包
+    vendor:['axios'], //防止重复打包
     /**
      * 打包独立css文件
      */

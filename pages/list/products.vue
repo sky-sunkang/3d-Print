@@ -5,7 +5,7 @@
     <div class="container  bottom-top">
       <div class="content-wapper ">
         <el-container>
-          <V-Left />
+          <V-Left class="left-right"/>
           <el-main class="right-left">
             <!--产品展示-->
             <div class="productList">
@@ -69,6 +69,21 @@
         pageIndex:1,
         moreproducts:[]
       }
+    },created(){
+      try {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        }
+        else {
+          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+        console.log("提交百度链接")
+      } catch(err) {
+      }
     },
     components: {
       'Foot': Foot,
@@ -130,5 +145,46 @@
     width: 1200px;
     min-height: 500px;
     margin: 0 auto;
+  }
+  .productList {
+
+  }
+  .productDiv{
+    margin-top: 20px;
+  }
+  .product{
+    width: 210px;
+    margin-left: 26px;
+    float: left;
+    cursor: pointer;
+    margin-bottom: 30px;
+  }
+  .product .productImg{
+    width: 210px;
+    height: 160px;
+    overflow: hidden;
+  }
+  .product .el-image{
+    width: 100%;
+    height: 100%;
+  }
+  .product:hover .el-image{
+    transform: scale(1.1);
+  }
+  .product span{
+    width: 100%;
+    height: 30px;
+    line-height: 30px;
+    display: inline-block;
+    text-align: center;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    color: #666666;
+  }
+  .product span.time{
+    font-size: 13px;
+    color: #999;
+    height: 15px;
+    line-height: 11px;
   }
 </style>
