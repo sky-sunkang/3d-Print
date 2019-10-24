@@ -1,4 +1,6 @@
 #!/bin/sh
+currTime=$(date +"%Y-%m-%d %T")
+echo -e "\n********************************$currTime*************************"
 echo "http://www.sk-yye.cn"  > urls.txt
 echo "http://www.sk-yye.cn/list/products"  >> urls.txt
 echo "http://www.sk-yye.cn/list/news"  >> urls.txt
@@ -15,4 +17,4 @@ do
 		echo -e "http://www.sk-yye.cn/${data}"  >> urls.txt		
 	fi
 done 
-curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=www.sk-yye.cn&token=iZ3PEmXwNc1f8wau"
+curl -H 'Content-Type:text/plain' --data-binary @urls.txt "http://data.zz.baidu.com/urls?site=www.sk-yye.cn&token=iZ3PEmXwNc1f8wau"		

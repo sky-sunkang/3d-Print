@@ -1,15 +1,5 @@
 <template>
   <el-aside width="215px">
-    <div class="leftContactNav" >
-      <ul>
-        <li class="leftContactNavTitle">产品导航</li>
-        <li>3D打印</li>
-        <li>手板模型</li>
-        <li>SLA激光快速成型</li>
-        <li>3D打印模型</li>
-        <li>3D打印手板模型</li>
-      </ul>
-    </div>
     <div class="leftContactNav">
       <ul>
         <li class="leftContactNavTitle">联系我们</li>
@@ -25,10 +15,7 @@
           </li>
         </a>
         <li>
-          <img src="~/assets/images/index/weixin.png" width="20" height="20"/>：yye9202<img class="scale" src="~/assets/images/index/3Dprintweixin.jpg" width="30" height="30"/><span class="tips">（可放大）</span>
-        </li>
-        <li>
-          <img src="~/assets/images/index/tell.png" width="20" height="20"/>：0755-66608413
+          <img src="~/assets/images/index/weixin.png" width="20" height="20"/>：15919464663<img class="scale" src="~/assets/images/index/3Dprintweixin.jpg" width="30" height="30"/><span class="tips"></span>
         </li>
         <li>
           <img src="~/assets/images/index/phone.png" width="20" height="20"/>：15919464663
@@ -37,7 +24,7 @@
           <img src="~/assets/images/index/email.png" width="20" height="20"/>：2850763601@qq.com
         </li>
         <li>
-          <img src="~/assets/images/index/address.png" width="20" height="20"/>：广东省宝安区深圳市龙华新区龙华街道华联社区和平工业园金星大厦厂房14楼C01室<a @click="ditu" href="javascript:void(0);">查看详情</a>
+          <img src="~/assets/images/index/address.png" width="20" height="20"/>：广东省深圳市龙华区龙华街道狮头岭和平工业园金星大厦B座7楼707<a @click="ditu" href="javascript:void(0);">查看详情</a>
         </li>
       </ul>
     </div>
@@ -103,7 +90,7 @@
     margin-left: 10px;
   }
   .scale:hover{
-    transform: scale(5);
+    transform: scale(3);
   }
   .tips{
     font-size: 10px;
@@ -111,7 +98,7 @@
   }
   .leftContactNavTitle{
     color: white;
-    background-color: black;
+    background-color:  #0c365c;
     height: 45px !important;
     line-height: 45px !important;
     border-top: 0px !important;

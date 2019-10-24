@@ -32,7 +32,7 @@ export default {
       }
     ], script: [
       {src: 'http://api.map.baidu.com/api?v=2.0&ak=zG9ZHEURUd0WH20G6gQ8HRRa'},
-      {src: 'https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js' },
+//      {src: 'https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js' },
       {src: '/js/baidu.js' }
     ],
     link: [
@@ -43,14 +43,14 @@ export default {
       },
       {
         rel: 'stylesheet',
-        href: 'https://cdn.staticfile.org/element-ui/2.4.11/theme-chalk/index.css'
+//        href: 'https://cdn.staticfile.org/element-ui/2.4.11/theme-chalk/index.css'
       }
     ]
     
   },css: [
     '~/css/main.css'
   ],js: [
-    '~/js/baidu.js'
+//    '~/js/baidu.js'
   ],
   /*
    ** Customize the progress-bar color
@@ -68,18 +68,6 @@ export default {
   modules: [
     '@nuxtjs/axios'
   ],
-  /* 需要使用 aixos必须配置以下两项axios和proxy*/
-  axios: {
-    retry: {retries:3},
-    //开发模式下开启debug
-    debug: process.env._ENV =="production"?false:true,
-    proxy:true,
-//    prefix:'/api',
-    //设置不同环境的请求地址
-//    baseURL:
-//      process.env._ENV =="production"?"http://localhost:3000/api/":"http://localhost:3000/api/",
-    credentials:true
-  },
   //动态路由打成静态文件["news/14","news/12"]
   generate: {
     routes: function () {
@@ -88,6 +76,17 @@ export default {
         return res.data;
       })
     }
+  },
+  /* 需要使用 aixos必须配置以下两项axios和proxy*/
+  axios: {
+    retry: {retries:3},
+    //开发模式下开启debug
+    debug: process.env._ENV =="production"?false:true,
+    baseURL:'http://www.sk-yye.cn:8080/publiccms',
+    proxy: true, // 表示开启代理
+//    prefix: '/api', // 表示给请求url加个前缀 /api
+//    credentials: true // 表示跨域请求时是否需要使用凭证
+    changeOrigin:true, //允许跨域
   },
   //  开发环境的代理，服务器上用nginx反向代理
   proxy: {
@@ -115,8 +114,29 @@ export default {
     analyze: {
       analyzerMode: 'static'
     },
-    maxChunkSize: 200000,
+    maxChunkSize: 800000,
     transpile: [/^element-ui/],
+    optimization: {
+      splitChunks: {
+        chunks: 'all',
+        automaticNameDelimiter: '.',
+        maxAsyncRequests: 7,
+        cacheGroups: {
+          vuetify: {
+            test: /node_modules[\\/]vuetify/,
+            chunks: 'all',
+            priority: 20,
+            name: true
+          },
+          elementui: {
+            test: /node_modules[\\/]element-ui/,
+            chunks: 'all',
+            priority: 20,
+            name: true
+          }
+        }
+      }
+    },
     babel: {
       plugins: [
         [

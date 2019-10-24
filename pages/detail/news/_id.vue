@@ -1,12 +1,12 @@
 <template>
   <div>
-    <V-HeadBanner class="top-bottom"/>
-    <V-HeadNev selectNev="news" class="top-bottom"/>
-    <div class="container  bottom-top">
+    <V-HeadNev selectNev="news"/>
+    <V-HeadBanner/>
+    <div class="container">
       <div class="content-wapper ">
         <el-container>
-          <V-Left class="left-right"/>
-          <el-main class="right-left">
+          <V-Left/>
+          <el-main>
             <div>
               您所在的位置：<NuxtLink to="/">网站首页</NuxtLink> > <NuxtLink to="/list/news">新闻动态</NuxtLink> > 正文
               <el-divider></el-divider>
@@ -61,17 +61,6 @@
           }
           console.log("提交百度链接")
         }(window)
-//        var bp = document.createElement('script');
-//        var curProtocol = window.location.protocol.split(':')[0];
-//        if (curProtocol === 'https') {
-//          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-//        }
-//        else {
-//          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-//        }
-//        var s = document.getElementsByTagName("script")[0];
-//        s.parentNode.insertBefore(bp, s);
-//        console.log("提交百度链接")
       } catch(err) {
       }
     },
@@ -86,16 +75,7 @@
     },
     methods: {
       htmlDecode (value) { // 把转义的字符串转义回来
-        if(value==null){
-          return "";
-        }
-        return value
-        .replace(value ? /&(?!#?\w+;)/g : /&/g, '&amp;')
-        .replace(/&nbsp;/g, "  ")
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, "\"")
-        .replace(/&#39;/g, "\'");
+        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ");
       },
       //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
       dateFormat(time) {

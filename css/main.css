@@ -10,7 +10,11 @@ body a {
   text-decoration: none;
 }
 body a:hover {
-  /*color: #faaf5c;*/
+  color: #346200;
+}
+.loddingImg{
+  width: 100px !important;
+  height: 100px !important;;
 }
 .container {
   margin-top: 20px;
@@ -20,6 +24,34 @@ body a:hover {
   min-height: 500px;
   margin: 0 auto;
 }
+
+.colorWhite{
+  color: white !important;
+}
+.el-image{
+  background-color: white;
+  /*border: 1px solid #cccccc;*/
+}
+/*分类头 begin*/
+.classify{
+  width:412px;
+  height:129px;
+  z-index:100;
+  margin: 20px auto 0px;
+}
+.classifyTitle{
+  font-size:30px;
+  line-height:2;
+  color:#333333;
+}
+
+.classifyTitleUsa{
+  font-size:18px;
+  line-height:2;
+  color:#999999;
+}
+/*分类头 end*/
+
 .image-slot{
   position:absolute;
   top: 50%;
@@ -45,7 +77,7 @@ body a:hover {
   display: inline-block;
   width: 100px;
   height: 45px;
-  background-color: black;
+  background-color: #0c365c;
   color: white;
   line-height: 45px;
   text-align: center

@@ -1,14 +1,14 @@
 <template>
   <div>
-    <V-HeadBanner  class="top-bottom"/>
-    <V-HeadNev selectNev="product"  class="top-bottom"/>
-    <div class="container  bottom-top">
+    <V-HeadNev selectNev="product"/>
+    <V-HeadBanner  />
+    <div class="container">
       <div class="content-wapper ">
         <el-container>
-          <V-Left class="left-right"/>
-          <el-main class="right-left">
+          <V-Left/>
+          <el-main>
             <!--产品展示-->
-            <div class="productList">
+            <div >
               <div class="listTitle" >
                 <span class="listTitleName" >产品列表</span>
               </div>
@@ -16,7 +16,9 @@
                 <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in products" :key="index">
                   <NuxtLink :to="{path:'/detail/product/'+product.id}">
                     <div class="productImg">
-                      <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title"> <div slot="placeholder" class="image-slot">玩命加载中...</div></el-image>
+                      <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title">
+                        <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
+                      </el-image>
                     </div>
                     <div >
                       <span v-bind:title="product.title">{{product.title}}</span>
@@ -27,7 +29,9 @@
                 <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in moreproducts" :key="index">
                   <NuxtLink :to="{path:'/detail/product/'+product.id}">
                     <div class="productImg">
-                      <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title"> <div slot="placeholder" class="image-slot">玩命加载中...</div></el-image>
+                      <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title">
+                        <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
+                      </el-image>
                     </div>
                     <div >
                       <span v-bind:title="product.title">{{product.title}}</span>
@@ -56,10 +60,11 @@
     name: 'products',
     head(){
       return {
-        title: '深圳龙华有哪些3D打印手板模型,3D打印手板,宝安3D打印服务,广州3D打印模型,东莞,惠州,中山,佛山,珠海,江门3D打印服务提供商,深圳汇通3D打印科技有限公司',
+        title: '广州3D打印_广州手板模型_越秀3D打印公司_白云_天河_黄埔_番禺_海珠_荔湾_增城_深圳_东莞_惠州_中山_佛山_珠海3D打印_深圳汇通三维打印科技',
         meta: [
-          { hid: 'keywords', name: 'keywords', content:'深圳3D打印加工,龙华3D打印模型,宝安3D手板模型,珠海3D打印模型,龙岗3D手板模型,惠州3D打印模型,东莞3D打印手板模型,佛山3D打印手板模型,中山3D打印模型,江门3D打印手板'},
-          { hid: 'description', name: 'description', content:  '深圳汇通3D打印科技有限公司是从事3D打印,3D打印服务,手板模型制造,模型设计开发的专业型公司。目前公司拥有数十几台尖端工业级3D打印机及相关配套设。在消费类电子产品、家电产品、汽车制造、医疗器械、通讯产品、工艺礼品、 玩具公仔等领域得到广泛用。深圳汇通三维始终坚信，3D打印将为中国制造提供丰富 的解决方案并贡献自己强大的力量，我们也将一如既往的站在3D打印技术最前沿与中国制造一同成长！'}
+          { hid: 'keywords', name: 'keywords', content:'广州3D打印_广州3D打印公司_越秀3D打印_白云3D打印_天河3D打印_黄埔3D打印_番禺3D打印_海珠3D打印_荔湾3D打印手板模型_增城3D打印_深圳_东莞_惠州_中山_佛山_汕头3D打印公司'},
+          { hid: 'description', name: 'description', content:  '深圳汇通三维打印科技有限公司是从事3D打印,3D打印服务,手板模型制造,模型设计开发的专业型公司。目前公司拥有数十几台尖端工业级3D打印机及相关配套设。在消费类电子产品、家电产品、汽车制造、医疗器械、通讯产品、工艺礼品、 玩具公仔等领域得到广泛用。深圳汇通三维始终坚信，3D打印将为中国制造提供丰富 的解决方案并贡献自己强大的力量，我们也将一如既往的站在3D打印技术最前沿与中国制造一同成长！'},
+          { hid: 'copyright', name: 'copyright', content:  '深圳汇通三维打印科技有限公司'}
         ]
       }
     },
@@ -70,7 +75,7 @@
         moreproducts:[]
       }
     },created(){
-      try {
+      /*try {
         var bp = document.createElement('script');
         var curProtocol = window.location.protocol.split(':')[0];
         if (curProtocol === 'https') {
@@ -83,7 +88,7 @@
         s.parentNode.insertBefore(bp, s);
         console.log("提交百度链接")
       } catch(err) {
-      }
+      }*/
     },
     components: {
       'Foot': Foot,
@@ -147,7 +152,6 @@
     margin: 0 auto;
   }
   .productList {
-
   }
   .productDiv{
     margin-top: 20px;
@@ -161,7 +165,7 @@
   }
   .product .productImg{
     width: 210px;
-    height: 160px;
+    height: 210px;
     overflow: hidden;
   }
   .product .el-image{

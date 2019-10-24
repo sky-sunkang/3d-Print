@@ -1,12 +1,12 @@
 <template>
   <div>
-    <V-HeadBanner class="top-bottom"/>
-    <V-HeadNev selectNev="contact" class="top-bottom"/>
-    <div class="container  bottom-top">
+    <V-HeadNev selectNev="contact"/>
+    <V-HeadBanner/>
+    <div class="container">
       <div class="content-wapper ">
         <el-container>
-          <V-Left class="left-right"/>
-          <el-main class="right-left">
+          <V-Left/>
+          <el-main>
             <div class="contactList">
               <div class="listTitle" >
                 <span class="listTitleName" >联系方式</span>
@@ -15,9 +15,8 @@
                 <p>深圳汇通三维打印科技有限公司</p>
                 <p>联系人：余小姐 （销售部经理）</p>
                 <p>QQ：2850763601</p>
-                <p>电话：0755-66608413</p>
-                <p>手机：15919464663</p>
-                <p>地址：广东省宝安区深圳市龙华新区龙华街道华联社区和平工业园金星大厦厂房14楼C01</p>
+                <p>手机：15919464663（微信同）</p>
+                <p>地址：广东省深圳市龙华区龙华街道狮头岭和平工业园金星大厦B座7楼707</p>
                 <br>
                 <div id="allmap">
                 </div>
@@ -40,10 +39,11 @@
     name: 'contact',
     head(){
       return {
-        title: '深圳汇通3D打印科技有限公司,,3D打印手板,深圳有哪些3D打印加工,龙华有哪些3D打印模型,福田有哪些3D打印手板,广州有哪些3D模型,东莞有哪些3D打印模型,东莞,惠州,中山,佛山,珠海,江门3D打印手板模型',
+        title: '惠州3D打印_惠州手板模型_惠城3D打印公司_惠阳_惠东_大亚湾_仲恺_博罗_龙门_广州_东莞_深圳_中山_佛山_珠海3D打印_深圳汇通三维打印科技',
         meta: [
-          { hid: 'keywords', name: 'keywords', content:'深圳3D打印加工,龙华3D打印模型,宝安3D手板模型,龙岗3D手板模型,惠州3D打印模型,东莞3D打印手板模型,佛山3D打印手板模型,中山3D打印模型,江门3D打印手板'},
-          { hid: 'description', name: 'description', content:  '深圳汇通3D打印科技有限公司是从事3D打印,3D打印服务,手板模型制造,模型设计开发的专业型公司。目前公司拥有数十几台尖端工业级3D打印机及相关配套设。在消费类电子产品、家电产品、汽车制造、医疗器械、通讯产品、工艺礼品、 玩具公仔等领域得到广泛用。深圳汇通三维始终坚信，3D打印将为中国制造提供丰富 的解决方案并贡献自己强大的力量，我们也将一如既往的站在3D打印技术最前沿与中国制造一同成长！'}
+          { hid: 'keywords', name: 'keywords', content:'惠州3D打印_惠州3D打印公司_惠城3D打印_惠阳3D打印_惠东3D打印_大亚湾3D打印_仲恺3D打印_博罗3D打印_龙门3D打印手板模型_广州_东莞_深圳_中山_佛山_汕头3D打印公司'},
+          { hid: 'description', name: 'description', content:  '深圳汇通三维打印科技有限公司是从事3D打印,3D打印服务,手板模型制造,模型设计开发的专业型公司。目前公司拥有数十几台尖端工业级3D打印机及相关配套设。在消费类电子产品、家电产品、汽车制造、医疗器械、通讯产品、工艺礼品、 玩具公仔等领域得到广泛用。深圳汇通三维始终坚信，3D打印将为中国制造提供丰富 的解决方案并贡献自己强大的力量，我们也将一如既往的站在3D打印技术最前沿与中国制造一同成长！'},
+          { hid: 'copyright', name: 'copyright', content:  '深圳汇通三维打印科技有限公司'}
         ]
       }
     },
@@ -72,22 +72,12 @@
     },
     methods: {
       htmlDecode (value) { // 把转义的字符串转义回来
-        return value
-        .replace(value ? /&(?!#?\w+;)/g : /&/g, '&amp;')
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, "\"")
-        .replace(/&#39;/g, "\'");
+        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ");
       }
     },
     filters: {
-      htmlDecode:function (html) {
-        return html
-        .replace(html ? /&(?!#?\w+;)/g : /&/g, '&amp;')
-        .replace(/&lt;/g, "<")
-        .replace(/&gt;/g, ">")
-        .replace(/&quot;/g, "\"")
-        .replace(/&#39;/g, "\'");
+      htmlDecode:function (value) {
+        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ");
       }
     }/*,
     async asyncData({ $axios}) {
