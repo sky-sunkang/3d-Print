@@ -8,7 +8,7 @@
             <V-Left/>
           <el-main>
             <div>
-              您所在的位置：<NuxtLink to="/">网站首页</NuxtLink> > <NuxtLink to="/list/products">产品展示</NuxtLink> > 产品详情
+              您所在的位置：网站首页 > 产品展示 > 产品详情
               <el-divider></el-divider>
               <div class="product-crove">
                 <el-image :lazy='true' :src="'//sk-yye.cn:8080/publiccms/webfile/'+data.cover" width="400" :alt="data.product_name"></el-image>

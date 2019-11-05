@@ -8,7 +8,7 @@
           <V-Left/>
           <el-main>
             <div>
-              您所在的位置：<NuxtLink to="/">网站首页</NuxtLink> > <NuxtLink to="/list/news">新闻动态</NuxtLink> > 正文
+              您所在的位置：网站首页 > 新闻动态 > 正文
               <el-divider></el-divider>
               <div class="news-title">
                 {{data.title}}
