@@ -114,7 +114,8 @@ export default {
     analyze: {
       analyzerMode: 'static'
     },
-    maxChunkSize: 800000,
+    //切割element打包文件50KB
+    maxChunkSize: 50000,
     transpile: [/^element-ui/],
     optimization: {
       splitChunks: {
@@ -122,12 +123,12 @@ export default {
         automaticNameDelimiter: '.',
         maxAsyncRequests: 7,
         cacheGroups: {
-          vuetify: {
+         /* vuetify: {
             test: /node_modules[\\/]vuetify/,
             chunks: 'all',
             priority: 20,
             name: true
-          },
+          },*/
           elementui: {
             test: /node_modules[\\/]element-ui/,
             chunks: 'all',
@@ -154,7 +155,7 @@ export default {
     extend (config, ctx) {
 //      config.externals={'jquery':'$'}
     },
-    vendor:['axios'], //防止重复打包
+    vendor:['axios','element-ui'], //防止重复打包
     /**
      * 打包独立css文件
      */

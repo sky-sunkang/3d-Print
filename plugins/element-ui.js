@@ -13,3 +13,4 @@ Vue.use(Button)
 Vue.use(Divider)
 Vue.prototype.$alert = MessageBox.alert
 Vue.prototype.$message = Message
+

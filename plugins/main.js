@@ -8,4 +8,3 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 Vue.prototype.$axios = axios// 将axios配置成vue的原型
 
 
-

@@ -1,8 +1,8 @@
 http://www.sk-yye.cn
-http://www.sk-yye.cn/list/products
-http://www.sk-yye.cn/list/news
-http://www.sk-yye.cn/list/company
-http://www.sk-yye.cn/list/contact
+http://www.sk-yye.cn/detail/news/42
+http://www.sk-yye.cn/detail/news/39
+http://www.sk-yye.cn/detail/news/36
+http://www.sk-yye.cn/detail/news/32
 http://www.sk-yye.cn/detail/news/29
 http://www.sk-yye.cn/detail/news/27
 http://www.sk-yye.cn/detail/news/24
@@ -13,6 +13,14 @@ http://www.sk-yye.cn/detail/news/15
 http://www.sk-yye.cn/detail/news/14
 http://www.sk-yye.cn/detail/news/12
 http://www.sk-yye.cn/detail/news/11
+http://www.sk-yye.cn/detail/product/41
+http://www.sk-yye.cn/detail/product/40
+http://www.sk-yye.cn/detail/product/38
+http://www.sk-yye.cn/detail/product/37
+http://www.sk-yye.cn/detail/product/35
+http://www.sk-yye.cn/detail/product/34
+http://www.sk-yye.cn/detail/product/33
+http://www.sk-yye.cn/detail/product/31
 http://www.sk-yye.cn/detail/product/30
 http://www.sk-yye.cn/detail/product/28
 http://www.sk-yye.cn/detail/product/26
@@ -30,3 +38,7 @@ http://www.sk-yye.cn/detail/product/4
 http://www.sk-yye.cn/detail/product/3
 http://www.sk-yye.cn/detail/product/2
 http://www.sk-yye.cn/detail/product/1
+http://www.sk-yye.cn/list/products
+http://www.sk-yye.cn/list/news
+http://www.sk-yye.cn/list/company
+http://www.sk-yye.cn/list/contact

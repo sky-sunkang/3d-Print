@@ -16,7 +16,7 @@
                 <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in products" :key="index">
                   <NuxtLink :to="{path:'/detail/product/'+product.id}">
                     <div class="productImg">
-                      <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title">
+                      <el-image :lazy='true' :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title">
                         <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
                       </el-image>
                     </div>
@@ -29,7 +29,7 @@
                 <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in moreproducts" :key="index">
                   <NuxtLink :to="{path:'/detail/product/'+product.id}">
                     <div class="productImg">
-                      <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title">
+                      <el-image :lazy='true' :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title">
                         <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
                       </el-image>
                     </div>

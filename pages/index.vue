@@ -45,7 +45,7 @@
               </div>
             </div>
           </div>
-          <el-image :src="adv" class="advRight">
+          <el-image :src="adv" class="advRight" :lazy='true'>
             <div slot="placeholder" class="image-slot">
               <img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100" />
             </div>
@@ -68,7 +68,7 @@
             <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in products" :key="index" >
               <NuxtLink :to="{path:'/detail/product/'+product.id}">
                 <div class="productImg">
-                  <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :alt="product.title">
+                  <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :lazy='true' :alt="product.title">
                     <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100" /></div>
                   </el-image>
                 </div>
@@ -130,7 +130,7 @@
           <div class="newsUlOne">
             <div v-for="(newObj,index) in news" v-if="index<2" class="newsUlOneLi" :class="index==1?'newsUlOneLiMagin':''" >
               <NuxtLink :to="{path:'/detail/news/'+newObj.id}">
-                <el-image class="newsUlOneImg" :src="'//sk-yye.cn:8080/publiccms/webfile/'+newObj.cover" :alt="newObj.title" style="">
+                <el-image class="newsUlOneImg" :lazy='true' :src="'//sk-yye.cn:8080/publiccms/webfile/'+newObj.cover" :alt="newObj.title" style="">
                   <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
                 </el-image>
                 <div class="newsUlOneRighr">
@@ -166,14 +166,14 @@
   export default{
     data(){
       return {
-        banners:[require("~/assets/images/banner-1.jpg")],
-        adv:require("~/assets/images/adv.jpg"),
-        aboutBg:require("~/assets/images/aboutBg.jpg")
+        banners:[require("~/static/images/banner-1.jpg")],
+        adv:require("~/static/images/adv.jpg"),
+        aboutBg:require("~/static/images/aboutBg.jpg")
       }
     },
     head(){
       return {
-        title: '深圳汇通3D打印科技有限公司,深圳有哪些3D打印公司,深圳3D打印服务,罗湖3D打印,广州3D打印服务,深圳|广州|东莞|惠州|中山|佛山|珠海|江门等地3D打印服务提供商',
+        title: '深圳汇通3D打印科技有限公司,深圳有哪些3D打印,深圳3D打印服务,罗湖3D打印,广州3D打印务,深圳|广州|东莞|惠州|中山|佛山|珠海|江门等地3D打印服务提供商',
         meta: [
           { hid: 'keywords', name: 'keywords', content:'深圳3D打印_深圳3D打印公司_龙华3D打印_宝安3D打印_龙岗3D打印_罗湖3D打印_福田3D打印_南山3D打印_光明3D打印手板模型_坪山3D打印_广州_东莞_惠州_中山_佛山_汕头3D打印公司'},
           { hid: 'description', name: 'description', content:  '深圳汇通三维打印科技有限公司是从事3D打印,3D打印服务,手板模型制造,模型设计开发的专业型公司。目前公司拥有数十几台尖端工业级3D打印机及相关配套设。在消费类电子产品、家电产品、汽车制造、医疗器械、通讯产品、工艺礼品、 玩具公仔等领域得到广泛用。深圳汇通三维始终坚信，3D打印将为中国制造提供丰富 的解决方案并贡献自己强大的力量，我们也将一如既往的站在3D打印技术最前沿与中国制造一同成长！'},
@@ -365,9 +365,13 @@
   .newsUlOneLiMagin{
     margin-left: 20px;
   }
+  .newsUlOne{
+    height: 170px;
+  }
   .newsUlOneLi{
     width: 544px;
-    display: inline-block;
+    /*display: inline-block;*/
+    float: left;
     background-color: #00acff;
     border: 1px solid #36b0f3;
     padding: 20px
