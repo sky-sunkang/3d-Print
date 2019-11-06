@@ -68,7 +68,7 @@
             <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in products" :key="index" >
               <NuxtLink :to="{path:'/detail/product/'+product.id}">
                 <div class="productImg">
-                  <el-image :src="'//sk-yye.cn:8080/publiccms/webfile/'+product.cover" :lazy='true' :alt="product.title">
+                  <el-image :src="'/publiccmswebfile/'+product.cover" :lazy='true' :alt="product.title">
                     <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100" /></div>
                   </el-image>
                 </div>
@@ -130,7 +130,7 @@
           <div class="newsUlOne">
             <div v-for="(newObj,index) in news" v-if="index<2" class="newsUlOneLi" :class="index==1?'newsUlOneLiMagin':''" >
               <NuxtLink :to="{path:'/detail/news/'+newObj.id}">
-                <el-image class="newsUlOneImg" :lazy='true' :src="'//sk-yye.cn:8080/publiccms/webfile/'+newObj.cover" :alt="newObj.title" style="">
+                <el-image class="newsUlOneImg" :lazy='true' :src="'/publiccmswebfile/'+newObj.cover" :alt="newObj.title" style="">
                   <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
                 </el-image>
                 <div class="newsUlOneRighr">
@@ -181,27 +181,9 @@
         ]
       }
     },created(){
-      /*try {
-        var bp = document.createElement('script');
-        var curProtocol = window.location.protocol.split(':')[0];
-        if (curProtocol === 'https') {
-          bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
-        }
-        else {
-          bp.src = 'http://push.zhanzhang.baidu.com/push.js';
-        }
-        var s = document.getElementsByTagName("script")[0];
-        s.parentNode.insertBefore(bp, s);
-        console.log("提交百度链接")
-      } catch(err) {
-      }*/
     },
     computed: {
     },methods:{
-//      async fetchSomething() {
-//        const ip = await this.$axios.$get('http://icanhazip.com')
-//        this.ip = ip
-//      },
       //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
       dateFormat(time,format) {
         var date=new Date(time);

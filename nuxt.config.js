@@ -31,8 +31,9 @@ export default {
         content: '深圳汇通三维打印科技'
       }
     ], script: [
-      {src: 'http://api.map.baidu.com/api?v=2.0&ak=zG9ZHEURUd0WH20G6gQ8HRRa'},
+      {src: 'https://api.map.baidu.com/api?v=2.0&ak=zG9ZHEURUd0WH20G6gQ8HRRa'},
 //      {src: 'https://cdn.staticfile.org/jquery/3.1.1/jquery.min.js' },
+//      {src: '/js/map.js' },
       {src: '/js/baidu.js' }
     ],
     link: [
@@ -90,6 +91,7 @@ export default {
   },
   //  开发环境的代理，服务器上用nginx反向代理
   proxy: {
+    //cms自带接口
     '/api/': {
       target: 'http://www.sk-yye.cn:8080/publiccms/api',
       pathRewrite: {
@@ -97,10 +99,19 @@ export default {
         changeOrigin: true
       }
     },
+    //cms自定义模板接口
     '/member/': {
       target: 'http://www.sk-yye.cn:8080/publiccms/member',
       pathRewrite: {
         '^/member/': '/',
+        changeOrigin: true
+      }
+    },
+    //cms静态资源
+    '/publiccmswebfile/': {
+      target: 'http://www.sk-yye.cn:8080/publiccms/webfile',
+      pathRewrite: {
+        '^/publiccmswebfile/': '/',
         changeOrigin: true
       }
     }
@@ -159,6 +170,12 @@ export default {
     /**
      * 打包独立css文件
      */
-    extractCSS: true
+    extractCSS: true,
+    // 默认情况下，关闭gzip，因为许多流行的静态主机
+    // 已经在nginx开启了gzip
+    // 在设置为“true”之前，请确保:
+    // npm install --save-dev compression-webpack-plugin
+    productionGzip: false,
+    productionGzipExtensions: ['js', 'css'],
   }
 }

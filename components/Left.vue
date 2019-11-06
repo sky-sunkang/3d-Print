@@ -9,7 +9,7 @@
         <li >
           余小姐 （销售部经理）
         </li>
-        <a class="tboxLi" target="_blank" href="http://wpa.qq.com/msgrd?v=3&amp;uin=2850763601&amp;site=qq&amp;menu=yes" rel="nofollow">
+        <a class="tboxLi" target="_blank" href="https://wpa.qq.com/msgrd?v=3&amp;uin=2850763601&amp;site=qq&amp;menu=yes" rel="nofollow">
           <li >
             <img src="~/assets/images/index/QQ.png" width="20" height="20"/>：2850763601<span class="tips">（可点击）</span>
           </li>

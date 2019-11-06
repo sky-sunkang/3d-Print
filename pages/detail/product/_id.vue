@@ -11,7 +11,7 @@
               您所在的位置：网站首页 > 产品展示 > 产品详情
               <el-divider></el-divider>
               <div class="product-crove">
-                <el-image :lazy='true' :src="'//sk-yye.cn:8080/publiccms/webfile/'+data.cover" width="400" :alt="data.product_name"></el-image>
+                <el-image :lazy='true' :src="'/publiccmswebfile/'+data.cover" width="400" :alt="data.product_name"></el-image>
               </div>
               <div class="product-into">
                 <div class="product-title">{{data.title}}</div>
@@ -51,21 +51,6 @@
         data:{}
       }
     },created(){
-      try {
-        !function () {
-          var e = /([http|https]:\/\/[a-zA-Z0-9\_\.]+\.baidu\.com)/gi,
-            r = window.location.href,
-            o = document.referrer==""?"http://sk-yye.cn":document.referrer
-          if (!e.test(r)) {
-            var n = '//api.share.baidu.com/s.gif'
-            o ? (n += '?r=' + encodeURIComponent(document.referrer==""?"http://sk-yye.cn":document.referrer), r && (n += '&l=' + r)) : r && (n += '?l=' + r)
-            var t = new Image
-            t.src = n
-          }
-          console.log("提交百度链接")
-        }(window)
-      } catch(err) {
-      }
     },
     head(){
       return {
@@ -78,7 +63,7 @@
     },
     methods: {
       htmlDecode (value) { // 把转义的字符串转义回来
-        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ");
+        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ").replace(/http:/g,"").replace(/\/\/sk-yye.cn:8080\/publiccms\/webfile/g,"/publiccmswebfile");
       },
       //时间格式化函数，此处仅针对yyyy-MM-dd hh:mm:ss 的格式进行格式化
       dateFormat(time) {

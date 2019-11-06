@@ -53,12 +53,12 @@
     },
     methods: {
       htmlDecode (value) { // 把转义的字符串转义回来
-        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ");
+        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ").replace(/http:/g,"").replace(/\/\/sk-yye.cn:8080\/publiccms\/webfile/g,"/publiccmswebfile");
       }
     },
     filters: {
       htmlDecode:function (value) {
-        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ");
+        return !value ? value : String(value).replace(/&gt;/g, ">").replace(/&lt;/g, "<").replace(/&quot;/g, '"').replace(/&amp;/g, "&").replace(/&#39;/g, "\'").replace(/&nbsp;/g," ").replace(/http:/g,"");
       }
     },
     async asyncData({ $axios}) {
