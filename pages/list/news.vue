@@ -5,7 +5,7 @@
     <div class="container">
       <div class="content-wapper ">
         <el-container>
-          <V-Left/>
+          <V-Left :leftproducts="products"/>
           <el-main >
             <div class="newsList">
               <div class="listTitle" >
@@ -110,7 +110,8 @@
     },
     async asyncData({ $axios}) {
       const newsRes = await $axios.$get('/api/directive/contentList?showParameters=false&categoryId=124&pageIndex=1&count=20')
-      return {news:newsRes.page.list}
+      const prores = await $axios.get('/api/directive/contentList?showParameters=false&categoryId=122&pageIndex=1&count=5')
+      return {news:newsRes.page.list,products:prores.data.page.list}
     }
   }
 </script>

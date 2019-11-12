@@ -72,7 +72,7 @@ export default {
   //动态路由打成静态文件["news/14","news/12"]
   generate: {
     routes: function () {
-      return axios.get('http://sk-yye.cn:8080/publiccms/member/detail.json')
+      return axios.get('https://sk-yye.cn/member/detail.json')
       .then((res) => {
         return res.data;
       })
@@ -83,7 +83,7 @@ export default {
     retry: {retries:3},
     //开发模式下开启debug
     debug: process.env._ENV =="production"?false:true,
-    baseURL:'http://www.sk-yye.cn:8080/publiccms',
+    baseURL:'https://www.sk-yye.cn',
     proxy: true, // 表示开启代理
 //    prefix: '/api', // 表示给请求url加个前缀 /api
 //    credentials: true // 表示跨域请求时是否需要使用凭证
@@ -93,7 +93,7 @@ export default {
   proxy: {
     //cms自带接口
     '/api/': {
-      target: 'http://www.sk-yye.cn:8080/publiccms/api',
+      target: 'https://www.sk-yye.cn/api',
       pathRewrite: {
         '^/api/': '/',
         changeOrigin: true
@@ -101,7 +101,7 @@ export default {
     },
     //cms自定义模板接口
     '/member/': {
-      target: 'http://www.sk-yye.cn:8080/publiccms/member',
+      target: 'https://www.sk-yye.cn/member',
       pathRewrite: {
         '^/member/': '/',
         changeOrigin: true
@@ -175,7 +175,7 @@ export default {
     // 已经在nginx开启了gzip
     // 在设置为“true”之前，请确保:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: false,
+    productionGzip: true,
     productionGzipExtensions: ['js', 'css'],
   }
 }

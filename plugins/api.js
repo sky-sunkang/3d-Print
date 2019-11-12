@@ -1,4 +1,4 @@
-let api = 'http://api.xxx.xxx';
+let api = 'https://api.xxx.xxx';
 module.exports = {
   getSolidList: api + '/getSolidList.api'
 }

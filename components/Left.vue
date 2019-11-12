@@ -1,5 +1,16 @@
 <template>
   <el-aside width="215px">
+    <div class="leftContactNav" v-if="leftproducts">
+      <ul>
+        <li class="leftContactNavTitle">最新打印样品鉴赏</li>
+        <NuxtLink  class="aBlue" :to="{path:'/detail/product/'+product.id}" v-for="(product,index) in leftproducts" :key="index">
+          <li :alt="product.title">
+             {{product.title.split("，")[0] | ellipsis}}
+            <img src="~/static/images/hot.png" width="30" height="30"/>
+          </li>
+        </NuxtLink>
+      </ul>
+    </div>
     <div class="leftContactNav">
       <ul>
         <li class="leftContactNavTitle">联系我们</li>
@@ -57,6 +68,18 @@
         },1000)
 
       }
+    },
+    filters: {
+        ellipsis (value) {
+          if (!value) return ''
+          if (value.length > 10) {
+            return value.slice(0,10) + '...'
+          }
+            return value
+        }
+    },
+    props: {
+      leftproducts: Array
     }
   }
 </script>
@@ -102,5 +125,12 @@
     height: 45px !important;
     line-height: 45px !important;
     border-top: 0px !important;
+  }
+  .aBlue li{
+    color: rgb(0, 0, 238);
+    cursor: pointer;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 </style>

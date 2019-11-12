@@ -14,6 +14,7 @@
               </div>
               <div class="productDiv">
                 <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in products" :key="index">
+                  <img src="~/static/images/hot.png" width="30" height="30" class="hot"/>
                   <NuxtLink :to="{path:'/detail/product/'+product.id}">
                     <div class="productImg">
                       <el-image :lazy='true' :src="'/publiccmswebfile/'+product.cover" :alt="product.title">

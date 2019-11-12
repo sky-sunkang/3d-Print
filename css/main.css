@@ -152,3 +152,8 @@ body a:hover {
 .page-enter, .page-leave-active {
   opacity: 0.8;
 }
+
+img.hot{
+  position: absolute;
+  z-index: 1000;
+}
