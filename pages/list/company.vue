@@ -5,7 +5,7 @@
     <div class="container">
       <div class="content-wapper ">
         <el-container>
-          <V-Left :leftproducts="products"/>
+          <V-Left :leftproducts="leftproducts"/>
           <el-main >
             <div class="companyList">
               <div class="listTitle" >
@@ -63,10 +63,12 @@
     },
     async asyncData({ $axios}) {
       //产品
-      const res = await $axios.get('/member/contentList.json?categoryId=123')
+      const res = await $axios.get('/member/content.json?id=9')
+//      const res = await $axios.get('/member/contentList.json?categoryId=123')
 //      var aa = $('<p/>').html(res.data.data[0].text).text()
       const prores = await $axios.get('/api/directive/contentList?showParameters=false&categoryId=122&pageIndex=1&count=5')
-      return {company:res.data.data[0],products:prores.data.page.list}
+      console.log(prores)
+      return {company:res.data,leftproducts:prores.data.page.list}
     }
   }
 </script>

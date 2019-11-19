@@ -5,7 +5,7 @@
     <div class="container">
       <div class="content-wapper ">
         <el-container>
-            <V-Left :leftproducts="products"/>
+            <V-Left :leftproducts="leftproducts"/>
           <el-main>
             <div>
               您所在的位置：网站首页 > 产品展示 > 产品详情
@@ -48,7 +48,6 @@
     },
     data() {
       return {
-        data:{}
       }
     },created(){
     },
@@ -83,9 +82,9 @@
     },
     async asyncData ({ params, error ,$axios}) {
       try {
-        const res = await $axios.get('/member/content.json?id='+params.id)
         const prores = await $axios.get('/api/directive/contentList?showParameters=false&categoryId=122&pageIndex=1&count=5')
-        return {data:res.data,products:prores.data.page.list}
+        const res = await $axios.get('/member/content.json?id='+params.id)
+        return {data:res.data,leftproducts:prores.data.page.list}
       } catch (e) {
         error({ message: 'User not found', statusCode: 404 })
       }

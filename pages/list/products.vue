@@ -15,30 +15,30 @@
               <div class="productDiv">
                 <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in products" :key="index">
                   <img src="~/static/images/hot.png" width="30" height="30" class="hot"/>
-                  <NuxtLink :to="{path:'/detail/product/'+product.id}">
+                  <a :href="'/detail/product/'+product.id">
                     <div class="productImg">
                       <el-image :lazy='true' :src="'/publiccmswebfile/'+product.cover" :alt="product.title">
-                        <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
+                        <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="84" height="84"/></div>
                       </el-image>
                     </div>
                     <div >
                       <span v-bind:title="product.title">{{product.title}}</span>
                       <span class="time">{{dateFormat(product.publishDate) }}</span>
                     </div>
-                  </NuxtLink>
+                  </a>
                 </el-card>
                 <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in moreproducts" :key="index">
-                  <NuxtLink :to="{path:'/detail/product/'+product.id}">
+                  <a :href="'/detail/product/'+product.id">
                     <div class="productImg">
                       <el-image :lazy='true' :src="'/publiccmswebfile/'+product.cover" :alt="product.title">
-                        <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
+                        <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="84" height="84"/></div>
                       </el-image>
                     </div>
                     <div >
                       <span v-bind:title="product.title">{{product.title}}</span>
                       <span class="time">{{dateFormat(product.publishDate) }}</span>
                     </div>
-                  </NuxtLink>
+                  </a>
                 </el-card>
               </div>
               <div style="clear: both;text-align: center">
@@ -87,7 +87,7 @@
       more(){
         this.moreLoading=true;
         this.pageIndex=this.pageIndex+1;
-        this.$axios.get('/api/directive/contentList?showParameters=false&pageIndex='+this.pageIndex+'&count=24&categoryId=122')
+        this.$axios.get('/api/directive/contentList?showParameters=false&pageIndex='+this.pageIndex+'&count=8&categoryId=122')
         .then((response) => { // 或者我们可以使用 ES6 的 箭头函数arrow function，箭头方法可以和父方法共享变量.否则不能在钩子函数中调用this.banners
           if(response.data.page.pageIndex!=this.pageIndex){
             this.$message.error('已经拉到最下面咯，客官！');

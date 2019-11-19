@@ -3,12 +3,12 @@
     <div class="leftContactNav" v-if="leftproducts">
       <ul>
         <li class="leftContactNavTitle">最新打印样品鉴赏</li>
-        <NuxtLink  class="aBlue" :to="{path:'/detail/product/'+product.id}" v-for="(product,index) in leftproducts" :key="index">
+        <a  class="aBlue" :href="'/detail/product/'+product.id" v-for="(product,index) in leftproducts" :key="index">
           <li :alt="product.title">
              {{product.title.split("，")[0] | ellipsis}}
             <img src="~/static/images/hot.png" width="30" height="30"/>
           </li>
-        </NuxtLink>
+        </a>
       </ul>
     </div>
     <div class="leftContactNav">

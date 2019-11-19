@@ -9,31 +9,31 @@
     <div class="nev">
       <div class="nev-wapper">
         <div class="menu-bar">
-          <NuxtLink to="/">
+          <a href="/">
             <div class="menu" v-bind:class=" selectNev=='index'?'select':''">
               首页
             </div>
-          </NuxtLink>
-          <NuxtLink to="/list/products">
+          </a>
+          <a href="/list/products">
             <div class="menu" v-bind:class="selectNev=='product'?'select':''">
               产品展示
             </div>
-          </NuxtLink>
-          <NuxtLink to="/list/company">
+          </a>
+          <a href="/list/company">
             <div class="menu" v-bind:class="selectNev=='company'?'select':''">
               企业档案
             </div>
-          </NuxtLink>
-          <NuxtLink to="/list/news">
+          </a>
+          <a href="/list/news">
             <div class="menu" v-bind:class="selectNev=='news'?'select':''">
               新闻动态
             </div>
-          </NuxtLink>
-          <NuxtLink to="/list/contact">
+          </a>
+          <a href="/list/contact">
             <div class="menu" v-bind:class="selectNev=='contact'?'select':''">
               联系方式
             </div>
-          </NuxtLink>
+          </a>
         </div>
       </div>
     </div>

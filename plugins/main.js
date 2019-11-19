@@ -6,5 +6,8 @@ axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded
 // axios.defaults.baseURL = '/api'// 配置接口地址
 // axios.defaults.withCredentials = false
 Vue.prototype.$axios = axios// 将axios配置成vue的原型
-
+$axios.onError(error => {
+  const code = parseInt(error.response && error.response.status)
+  console.log(code)
+})
 

@@ -2,8 +2,8 @@
   <el-carousel :interval="3000"  arrow="always" :autoplay="true" :loop="true" height="450px">
     <el-carousel-item v-for="banner in banners" :key="banner">
       <el-image :src="banner" width="100%" height="450px">
-        <div slot="placeholder" class="image-slot">
-          <img class="loddingImg" src="~/assets/images/loading.gif"  width="100" height="100"/>
+      <div slot="placeholder" class="image-slot">
+          <img class="loddingImg" src="~/assets/images/loading.gif"  width="84" height="84b"/>
         </div>
       </el-image>
     </el-carousel-item>

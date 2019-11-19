@@ -56,7 +56,7 @@ export default {
   /*
    ** Customize the progress-bar color
    */
-  loading: {color: '#fff'},
+  loading: {color: '#36b0f3'},
   /*
    ** Plugins to load before mounting the App
    */
@@ -76,7 +76,9 @@ export default {
       .then((res) => {
         return res.data;
       })
-    }
+    },
+    interval: 200//,//两个渲染周期之间的间隔，以避免使用来自Web应用程序的API调用互相干扰
+//    concurrency:1000//路由的生成是并发的
   },
   /* 需要使用 aixos必须配置以下两项axios和proxy*/
   axios: {
@@ -125,6 +127,11 @@ export default {
     analyze: {
       analyzerMode: 'static'
     },
+	/*splitChunks: {
+	  layouts: false,
+	  pages: true,
+	  commons: true
+	}, */
     //切割element打包文件50KB
     maxChunkSize: 50000,
     transpile: [/^element-ui/],
@@ -175,7 +182,7 @@ export default {
     // 已经在nginx开启了gzip
     // 在设置为“true”之前，请确保:
     // npm install --save-dev compression-webpack-plugin
-    productionGzip: true,
-    productionGzipExtensions: ['js', 'css'],
+    productionGzip: false,
+    productionGzipExtensions: ['js', 'css']
   }
 }

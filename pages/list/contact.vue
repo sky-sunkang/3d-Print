@@ -5,7 +5,7 @@
     <div class="container">
       <div class="content-wapper ">
         <el-container>
-          <V-Left :leftproducts="products"/>
+          <V-Left :leftproducts="leftproducts"/>
           <el-main>
             <div class="contactList">
               <div class="listTitle" >
@@ -81,8 +81,8 @@
       }
     },
     async asyncData({ $axios}) {
-      const prores = await $axios.get('/api/directive/contentList?showParameters=false&categoryId=122&pageIndex=1&count=5')
-      return {products:prores.data.page.list}
+     const prores = await $axios.get('/api/directive/contentList?showParameters=false&categoryId=122&pageIndex=1&count=5')
+      return {leftproducts:prores.data.page.list}
     }
   }
 </script>

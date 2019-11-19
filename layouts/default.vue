@@ -6,22 +6,13 @@
 </template>
 <script>
   import Foot from '~/components/Foot'
-  import HeadBanner from '~/components/HeadBanner'
-  import HeadNev from '~/components/HeadNev'
   export default {
     data(){
       return {
       }
     },
-    watch: {
-      "$route": function(){
-        //路由变化会触发
-      }
-    },
     components: {
-      'Foot': Foot,
-      'V-HeadBanner': HeadBanner,
-      'V-HeadNev': HeadNev
+      'Foot': Foot
     }
   }
 </script>

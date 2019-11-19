@@ -5,7 +5,7 @@
     <div class="container">
       <div class="content-wapper ">
         <el-container>
-          <V-Left :leftproducts="products"/>
+          <V-Left :leftproducts="leftproducts"/>
           <el-main >
             <div class="newsList">
               <div class="listTitle" >
@@ -13,18 +13,18 @@
               </div>
               <ul class="news-ul" >
                   <li v-for="newObj in news">
-                    <NuxtLink :to="{path:'/detail/news/'+newObj.id}">
+                    <a :href="'/detail/news/'+newObj.id">
                     <span class="new-title">{{newObj.title}}</span>
                     <span class="new-date">{{dateFormat(newObj.publishDate) }}</span>
                     <span class="new-desc">{{newObj.description}}</span>
-                    </NuxtLink>
+                    </a>
                   </li>
                   <li v-for="newObj in morenews">
-                    <NuxtLink :to="{path:'/detail/news/'+newObj.id}">
+                    <a :href="'/detail/news/'+newObj.id">
                     <span class="new-title">{{newObj.title}}</span>
                     <span class="new-date">{{dateFormat(newObj.publishDate) }}</span>
                     <span class="new-desc">{{newObj.description}}</span>
-                    </NuxtLink>
+                    </a>
                   </li>
               </ul>
               <div style="clear: both;text-align: center;margin-top: 30px">
@@ -88,7 +88,7 @@
       more(){
         this.moreLoading=true;
         this.pageIndex=this.pageIndex+1;
-        this.$axios.get('/api/directive/contentList?showParameters=false&categoryId=124&pageIndex='+this.pageIndex+'&count=20')
+        this.$axios.get('/api/directive/contentList?showParameters=false&categoryId=124&pageIndex='+this.pageIndex+'&count=10')
         .then((response) => { // 或者我们可以使用 ES6 的 箭头函数arrow function，箭头方法可以和父方法共享变量.否则不能在钩子函数中调用this.banners
           if(response.data.page.pageIndex!=this.pageIndex){
             this.$message.error('已经拉到最下面咯，客官！');
@@ -111,7 +111,7 @@
     async asyncData({ $axios}) {
       const newsRes = await $axios.$get('/api/directive/contentList?showParameters=false&categoryId=124&pageIndex=1&count=20')
       const prores = await $axios.get('/api/directive/contentList?showParameters=false&categoryId=122&pageIndex=1&count=5')
-      return {news:newsRes.page.list,products:prores.data.page.list}
+      return {news:newsRes.page.list,leftproducts:prores.data.page.list}
     }
   }
 </script>

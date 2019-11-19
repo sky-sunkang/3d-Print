@@ -47,7 +47,7 @@
           </div>
           <el-image :src="adv" class="advRight" :lazy='true'>
             <div slot="placeholder" class="image-slot">
-              <img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100" />
+              <img class="loddingImg" src="~/assets/images/loading.gif" width="84" height="84" />
             </div>
           </el-image>
         </div>
@@ -67,17 +67,17 @@
           <div class="productDiv">
             <el-card class="product" :body-style="{ padding: '0px' }" v-for="(product,index) in products" :key="index" >
               <img src="~/static/images/hot.png" width="30" height="30" class="hot"/>
-              <NuxtLink :to="{path:'/detail/product/'+product.id}">
+              <a :href="'/detail/product/'+product.id">
                 <div class="productImg">
                   <el-image :src="'/publiccmswebfile/'+product.cover" :lazy='true' :alt="product.title">
-                    <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100" /></div>
+                    <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="84" height="84" /></div>
                   </el-image>
                 </div>
                 <div >
                   <span v-bind:title="product.title">{{product.title}}</span>
                   <span class="time">{{dateFormat(product.publishDate,'yyyy-MM-dd hh:mm:ss') }}</span>
                 </div>
-              </NuxtLink>
+              </a>
             </el-card>
           </div>
         </div>
@@ -130,23 +130,23 @@
         <div>
           <div class="newsUlOne">
             <div v-for="(newObj,index) in news" v-if="index<2" class="newsUlOneLi" :class="index==1?'newsUlOneLiMagin':''" >
-              <NuxtLink :to="{path:'/detail/news/'+newObj.id}">
+              <a :href="'/detail/news/'+newObj.id">
                 <el-image class="newsUlOneImg" :lazy='true' :src="'/publiccmswebfile/'+newObj.cover" :alt="newObj.title" style="">
-                  <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="100" height="100"/></div>
+                  <div slot="placeholder" class="image-slot"><img class="loddingImg" src="~/assets/images/loading.gif" width="84" height="84"/></div>
                 </el-image>
                 <div class="newsUlOneRighr">
                   <div class="newsUlOneTitle" :alt="newObj.title">{{newObj.title}}</div>
                   <div class="newsUlOneDec" :alt="newObj.description">{{newObj.description}}</div>
                 </div>
-              </NuxtLink>
+              </a>
             </div>
           </div>
           <div class="newsUl">
             <div v-for="(newObj,index) in news" v-if="index>=2" class="newsli" :class="index%2!=0?'newsliMagin':''" >
                 <img src="data:image/gif;base64,R0lGODlhBAAHAIABANLS0v///yH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4zLWMwMTEgNjYuMTQ1NjYxLCAyMDEyLzAyLzA2LTE0OjU2OjI3ICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M2IChXaW5kb3dzKSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCRUY2NTg2QkZENTAxMUUxOEU1QkIzMkU0ODZDNEI1RSIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCRUY2NTg2Q0ZENTAxMUUxOEU1QkIzMkU0ODZDNEI1RSI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOkJFRjY1ODY5RkQ1MDExRTE4RTVCQjMyRTQ4NkM0QjVFIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOkJFRjY1ODZBRkQ1MDExRTE4RTVCQjMyRTQ4NkM0QjVFIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAQABwBAAghEDhlphs7YKQA7" width="4" height="7"/>
-                <NuxtLink :to="{path:'/detail/news/'+newObj.id}">
+                <a :href="'/detail/news/'+newObj.id">
                 {{newObj.title}}
-                </NuxtLink>
+                </a>
                 <span>{{dateFormat(newObj.publishDate,'yyyy-MM-dd') }}</span>
 
             </div>
@@ -208,11 +208,9 @@
     async asyncData({ $axios }) {
       //产品
       const res = await $axios.$get('/api/directive/contentList?showParameters=false&categoryId=122&pageIndex=1&count=10')
-      //企业档案
-      const companyRes = await $axios.$get('/api/directive/contentList?showParameters=false&categoryId=123&pageIndex=1&count=1')
       //新闻动态
       const newsRes = await $axios.$get('/api/directive/contentList?showParameters=false&categoryId=124&pageIndex=1&count=10')
-      return {company:companyRes.page.list[0], products:res.page.list,news:newsRes.page.list}
+      return {products:res.page.list,news:newsRes.page.list}
     },
     components: {
       ElImage,
