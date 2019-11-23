@@ -18,7 +18,7 @@
                 <p>手机：15919464663（微信同）</p>
                 <p>地址：广东省深圳市龙华区龙华街道狮头岭和平工业园金星大厦B座7楼707</p>
                 <br>
-                <div id="allmap">
+                <div id="allmapCantact">
                 </div>
                 <span style="color: red">*上述地图中的红点是深圳汇通三维打印科技在百度地图中的具体位置标注，地图可以拖动，鼠标滑轮滑动放大</span>
               </div>
@@ -56,7 +56,7 @@
     created() {
       var interval =setInterval(function(){
         try {
-          var map = new BMap.Map('allmap')
+          var map = new BMap.Map('allmapCantact')
           var point = new BMap.Point(114.026909, 22.676792)
           map.centerAndZoom(point, 10)
           map.enableScrollWheelZoom()//  启用滚轮放大缩小，默认禁用
@@ -66,7 +66,8 @@
           })
           local.search('深圳汇通三维打印科技有限公司')
           clearInterval(interval)
-        }catch {
+        }catch(error) {
+          console.log(error)
         }
       },1000)
     },
@@ -111,5 +112,9 @@
   }
   table td {
     height: 40px;
+  }
+  #allmapCantact{
+    width: 950px;
+    height: 600px;
   }
 </style>

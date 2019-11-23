@@ -14,7 +14,7 @@
                 <el-image :lazy='true' :src="'/publiccmswebfile/'+data.cover" width="400" :alt="data.product_name"></el-image>
               </div>
               <div class="product-into">
-                <div class="product-title">{{data.title}}</div>
+                <div class="product-title"><h4> {{data.title}}</h4></div>
                 <img class="scale" src="~/assets/images/index/3Dprintweixin.jpg" width="60" height="60" />
                 <p>价格信息：</p>
                 <p>{{data.price}}</p>
@@ -24,6 +24,10 @@
               </div>
               <div class="product-detail" v-html="htmlDecode(data.text)">
 
+              </div>
+              <div class="prev_next">
+                <a class="prev" v-if="data.prev_id" :href="'/detail/product/'+data.prev_id"><i class="el-icon-d-arrow-left"></i>上一篇：{{data.prev_title}}</a>
+                <a class="next" v-if="data.next_id" :href="'/detail/product/'+data.next_id">下一篇：{{data.next_title}}<i class="el-icon-d-arrow-right"></i></a>
               </div>
             </div>
           </el-main>
@@ -136,6 +140,9 @@
     white-space: nowrap;
     text-overflow: ellipsis;
   }
+  .product-title h4{
+    margin: 0;
+  }
   .product-detail{
     clear: both;
     padding-top: 30px;
@@ -143,5 +150,37 @@
 
   .scale:hover{
     transform: scale(3);
+  }
+  .prev_next{
+    clear: both;
+    margin-top: 20px;
+  }
+  .prev{
+    width: 50%;
+    padding: 10px;
+    font-size: 14px;
+    color: #666161;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    background-color: #F5F5F5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .next{
+    width: 49%;
+    padding: 10px;
+    font-size: 14px;
+    color: #666161;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: right;
+    text-align: center;
+    background-color: #F5F5F5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>

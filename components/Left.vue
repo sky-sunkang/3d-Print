@@ -53,12 +53,12 @@
         });
         var interval =setInterval(function(){
           try {
-            var map = new BMap.Map('allmap')
-            var point = new BMap.Point(114.026909, 22.676792)
+            var map = new window.BMap.Map('allmap')
+            var point = new window.BMap.Point(114.026909, 22.676792)
             map.centerAndZoom(point, 10)
             map.enableScrollWheelZoom()//  启用滚轮放大缩小，默认禁用
             map.enableContinuousZoom()//  启用地图惯性拖拽，默认禁用
-            var local = new BMap.LocalSearch(map, {
+            var local = new window.BMap.LocalSearch(map, {
               renderOptions: {map: map}
             })
             local.search('深圳汇通三维打印科技有限公司')
@@ -84,7 +84,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .leftContactNav{
     border: 1px solid #e0e0e0;
     background-color: white;
@@ -132,5 +132,14 @@
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
+  }
+
+  .el-message-box{
+    width: 800px;
+    height: 600px;
+  }
+  #allmap{
+    width: 770px;
+    height: 520px;
   }
 </style>

@@ -11,7 +11,7 @@
               您所在的位置：网站首页 > 新闻动态 > 正文
               <el-divider></el-divider>
               <div class="news-title">
-                {{data.title}}
+                <h4>{{data.title}}</h4>
               </div>
               <div class="news-auth">
                 <span>发布者：{{data.author}}</span>
@@ -20,6 +20,10 @@
               </div>
               <el-divider></el-divider>
               <div class="news-context" v-html="htmlDecode(data.text)">
+              </div>
+              <div class="prev_next">
+                <a class="prev" v-if="data.prev_id" :href="'/detail/product/'+data.prev_id"><i class="el-icon-d-arrow-left"></i>上一篇：{{data.prev_title}}</a>
+                <a class="next" v-if="data.next_id" :href="'/detail/product/'+data.next_id">下一篇：{{data.next_title}}<i class="el-icon-d-arrow-right"></i></a>
               </div>
             </div>
           </el-main>
@@ -114,6 +118,9 @@
     margin-top: 30px;
     font-weight: bold;
   }
+  .news-title h4{
+    margin: 0;
+  }
   .news-auth{
     text-align: center;
     font-size: 12px;
@@ -131,5 +138,37 @@
 
   .news-context{
 
+  }
+  .prev_next{
+    clear: both;
+    margin-top: 20px;
+  }
+  .prev{
+    width: 50%;
+    padding: 10px;
+    font-size: 14px;
+    color: #666161;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: left;
+    text-align: center;
+    background-color: #F5F5F5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .next{
+    width: 49%;
+    padding: 10px;
+    font-size: 14px;
+    color: #666161;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    float: right;
+    text-align: center;
+    background-color: #F5F5F5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 </style>
